@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#sleep 10
+sleep 2
 
 # create the wordpress config file and setting config infos
 wp config create --allow-root \

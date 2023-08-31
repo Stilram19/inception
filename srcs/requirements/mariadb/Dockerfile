@@ -14,4 +14,4 @@ COPY tools/script.sh /home/script.sh
 
 RUN chmod +x /home/script.sh
 
-#CMD ["/home/script.sh"]
+CMD ["/home/script.sh"]

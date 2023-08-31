@@ -30,4 +30,4 @@ COPY tools/wp_script.sh /home/wp_script.sh
 
 RUN chmod +x /home/wp_script.sh
 
-#CMD ["/home/wp_script.sh"]
+CMD ["/home/wp_script.sh"]

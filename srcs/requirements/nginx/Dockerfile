@@ -5,6 +5,7 @@ EXPOSE 443
 
 # installing dependencies + useful packages
 RUN apt -y update && apt install -y vim curl nginx openssl && \
+    mkdir -p /var/www/resources && \
     mkdir -p /etc/nginx/ssl-config && \
     openssl req -x509 -nodes -out /etc/nginx/ssl-config/self-signed.crt \
         -keyout /etc/nginx/ssl-config/private.key \
