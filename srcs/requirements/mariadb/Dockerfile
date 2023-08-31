@@ -7,7 +7,8 @@ EXPOSE 3306
 RUN apt update -y && apt upgrade -y && apt install -y vim mariadb-server
 
 # copying the mariadb server config file to its location inside the container
-COPY conf/50-server.cnf	/etc/mysql/my.cnf
+#COPY conf/50-server.cnf	/etc/mysql/my.cnf
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # debugging
 COPY tools/script.sh /home/script.sh

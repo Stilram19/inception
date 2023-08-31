@@ -23,4 +23,3 @@ mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 # restarting the server as the main process
 
 exec mysqld_safe
-

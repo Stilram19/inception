@@ -12,3 +12,5 @@ volumes:
 	sudo rm -rf /home/obednaou/data/
 	mkdir -p /home/obednaou/data/mysql
 	mkdir -p /home/obednaou/data/wordpress
+
+re: down up

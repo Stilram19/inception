@@ -12,22 +12,21 @@ RUN apt update -y && apt upgrade -y \
 && cd /var/www && unzip  latest.zip\
 && rm latest.zip \
 && chown -R root:root /var/www/wordpress \
-&& wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+&& wget https://github.com/wp-cli/wp-cli/releases/download/v2.8.1/wp-cli-2.8.1.phar -O wp-cli.phar \
 && chmod +x wp-cli.phar \
-&& mv wp-cli.phar /usr/local/bin/wp
+&& mv wp-cli.phar /usr/local/bin/wp \
+&& mkdir -p /run/php
 
-# env variables for testing
-
-ENV MDB_DATABASE=my_database
-ENV MDB_USER=obednaou
-ENV MDB_PASSWORD=pass123
-ENV MDB_ROOT_PASSWORD=root123
-
+#&& wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+#&& chmod +x wp-cli.phar \
+#&& mv wp-cli.phar /usr/local/bin/wp
 
 # copying the config script to the container and giving it execute permission
 
 COPY tools/wp_script.sh /home/wp_script.sh
 
 RUN chmod +x /home/wp_script.sh
+
+WORKDIR /var/www/wordpress
 
 CMD ["/home/wp_script.sh"]
