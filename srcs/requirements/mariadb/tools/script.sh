@@ -4,7 +4,7 @@ service mariadb start
 
 # sleep for a short time to ensure that MariaDB service has started
 
-sleep 1
+sleep 2
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${MDB_DATABASE}\`;"
 
@@ -18,8 +18,7 @@ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MDB_ROOT_PASSWORD}';"
 
 mysql -u root -p$MDB_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
 
-mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+mysqladmin -u root -p$MDB_ROOT_PASSWORD shutdown
 
 # restarting the server as the main process
-
 exec mysqld_safe

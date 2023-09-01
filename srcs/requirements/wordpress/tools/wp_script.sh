@@ -13,7 +13,7 @@ sleep 10
 cat wp-config-sample.php > wp-config.php
 sed -i "s/username_here/$MDB_USER/g" wp-config.php
 sed -i "s/password_here/$MDB_PASSWORD/g" wp-config.php
-sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config.php
+sed -i "s/localhost/$MDB_HOSTNAME/g" wp-config.php
 sed -i "s/database_name_here/$MDB_DATABASE/g" wp-config.php
 
 #echo "data base name $MDB_DATABASE\n"
