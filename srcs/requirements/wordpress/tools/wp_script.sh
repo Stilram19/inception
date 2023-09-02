@@ -23,6 +23,6 @@ wp user create --allow-root $WP_USER aminekhallofi@gmail.com --user_pass=$WP_USE
 
 echo "php-fpm starting!"
 
-php-fpm7.4 -F
+php-fpm7.4 -F -R
 
 echo "php-fpm failed!"

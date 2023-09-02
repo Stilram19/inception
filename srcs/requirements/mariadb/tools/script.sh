@@ -21,4 +21,4 @@ mysql -u root -p$MDB_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
 mysqladmin -u root -p$MDB_ROOT_PASSWORD shutdown
 
 # restarting the server as the main process
-exec mysqld_safe
+exec mysqld_safe --bind-address=0.0.0.0

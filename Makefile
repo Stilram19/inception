@@ -7,9 +7,10 @@ down:
 	@docker compose -f ./srcs/docker-compose.yml down
 	@docker image rm -f $$(docker images -q)
 	@docker volume rm $$(docker volume ls -q)
+	@docker system prune --all --force
+	sudo rm -rf /home/obednaou/data/
 
 volumes:
-	sudo rm -rf /home/obednaou/data/
 	mkdir -p /home/obednaou/data/mysql
 	mkdir -p /home/obednaou/data/wordpress
 

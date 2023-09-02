@@ -17,10 +17,6 @@ RUN apt update -y && apt upgrade -y \
 && mv wp-cli.phar /usr/local/bin/wp \
 && mkdir -p /run/php
 
-#&& wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-#&& chmod +x wp-cli.phar \
-#&& mv wp-cli.phar /usr/local/bin/wp
-
 # copying the config script to the container and giving it execute permission
 COPY tools/wp_script.sh /home/wp_script.sh
 
