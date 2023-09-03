@@ -1,6 +1,9 @@
 version: "3"
 
 services:
+
+  # mandatory
+
   nginx:
     container_name: nginx
     networks:
@@ -47,6 +50,39 @@ services:
       - mariadb
     expose:
       - "9000"
+
+  # bonus
+
+  redis:
+    container_name: redis
+    networks:
+      - inception_net
+    build:
+      context: ./requirements/bonus/redis
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: on-failure
+    expose:
+      - "6379"
+  adminer:
+    container_name: adminer
+    networks:
+      - inception_net
+    build:
+      context: ./requirements/bonus/adminer
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "80:80"
+  static_website:
+    container_name: static_website
+    build:
+      context: ./requirements/bonus/static_website
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "8080:8080"
 
 volumes:
   wordpress:
