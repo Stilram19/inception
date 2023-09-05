@@ -6,6 +6,8 @@ RUN	apt update -y && apt upgrade -y \
 
 COPY conf/vsftpd.conf /etc/vsftpd.conf
 
-#COPY tools/server_ftp.sh /home/server_ftp.sh
+COPY tools/script.sh /home/script.sh
 
-#CMD ["/home/server_ftp.sh"]
+RUN chmod +x /home/script.sh
+
+CMD ["/home/script.sh"]

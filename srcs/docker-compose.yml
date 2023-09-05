@@ -83,6 +83,38 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
+  ftp:
+    container_name: ftp
+    networks:
+      - inception_net
+    build:
+      context: ./requirements/bonus/ftp
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: on-failure
+    volumes:
+      - wordpress:/var/www/html
+    ports:
+      - "21:21"
+
+  cadvisor:
+    container_name: cadvisor
+    networks:
+      - inception_net
+    build:
+      context: ./requirements/bonus/cadvisor
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: on-failure
+    volumes:
+      - /:/rootfs
+      - /var/run:/var/run
+      - /sys:/sys
+      - /var/lib/docker/:/var/lib/docker
+    ports:
+      - "8888:8080"
 
 volumes:
   wordpress:
